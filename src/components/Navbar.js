@@ -3,6 +3,7 @@ import { AiOutlineMenu } from "react-icons/ai";
 import { AiOutlineBell } from "react-icons/ai";
 import Tippy from "@tippyjs/react";
 import "tippy.js/themes/light.css";
+import { NavLink } from "react-router-dom";
 
 const Navbar = ({ onClick }) => {
   return (
@@ -37,15 +38,22 @@ const Navbar = ({ onClick }) => {
           placement="bottom"
           trigger="mouseenter"
         >
-          <button className="rounded-full w-8 mr-2 ">
-            <img
-              src="../images/profile-default.jpeg"
-              alt="profile"
-              className="hover:cursor-pointer"
-            />
-          </button>
+          <NavLink
+            to="/profile"
+          >
+            <button className="rounded-full w-8 mr-2 ">
+              <img
+                src="../images/profile-default.jpeg"
+                alt="profile"
+                className="hover:cursor-pointer"
+              />
+            </button>
+          </NavLink>
         </Tippy>
-        <span className="hidden md:block dark:text-secondary-100"> Hi, Dilara!</span>
+        <span className="hidden md:block dark:text-secondary-100">
+          {" "}
+          Hi, Dilara!
+        </span>
       </div>
     </div>
   );
