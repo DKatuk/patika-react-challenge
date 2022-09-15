@@ -92,8 +92,12 @@ const Projects = ({
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ isCompleted: "inProgress" }),
     };
+    let updatedArray = todos.filter((todo)=>todo.id !== e.id)
+    const newTodoObject = {...e, isCompleted: "inProgress"}
+    updatedArray.push(newTodoObject);
+    setTodos(updatedArray)
     fetch(
-      `https://6322252d362b0d4e7dc97a30.mockapi.io/todos/${e}`,
+      `https://6322252d362b0d4e7dc97a30.mockapi.io/todos/${e.id}`,
       requestOptions
     )
       .then((response) => response.json())
@@ -105,15 +109,20 @@ const Projects = ({
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ isCompleted: "Done" }),
     };
+    let updatedArray = todos.filter((todo) => todo.id !== e.id);
+    const newTodoObject = { ...e, isCompleted: "Done" };
+    updatedArray.push(newTodoObject);
+    setTodos(updatedArray);
     fetch(
-      `https://6322252d362b0d4e7dc97a30.mockapi.io/todos/${e}`,
+      `https://6322252d362b0d4e7dc97a30.mockapi.io/todos/${e.id}`,
       requestOptions
     )
       .then((response) => response.json())
       .then((data) => console.log("put ddataa", data));
   }
   function deleteTodo(e) {
-    fetch(`https://6322252d362b0d4e7dc97a30.mockapi.io/todos/${e}`, {
+    setTodos(todos.filter((todo) => todo.id !== e.id));
+    fetch(`https://6322252d362b0d4e7dc97a30.mockapi.io/todos/${e.id}`, {
       method: "DELETE",
     })
       .then(async (response) => {
@@ -235,7 +244,7 @@ const Projects = ({
                         <button
                           onClick={(e) => {
                             e.preventDefault();
-                            setInProgress(todo.id);
+                            setInProgress(todo);
                           }}
                         >
                           In Progress
@@ -243,7 +252,7 @@ const Projects = ({
                         <button
                           onClick={(e) => {
                             e.preventDefault();
-                            setDone(todo.id);
+                            setDone(todo);
                           }}
                         >
                           Done
@@ -251,7 +260,7 @@ const Projects = ({
                         <button
                           onClick={(e) => {
                             e.preventDefault();
-                            deleteTodo(todo.id);
+                            deleteTodo(todo);
                           }}
                         >
                           Delete
@@ -302,7 +311,7 @@ const Projects = ({
                         <button
                           onClick={(e) => {
                             e.preventDefault();
-                            setDone(todo.id);
+                            setDone(todo);
                           }}
                         >
                           Done
@@ -310,7 +319,7 @@ const Projects = ({
                         <button
                           onClick={(e) => {
                             e.preventDefault();
-                            deleteTodo(todo.id);
+                            deleteTodo(todo);
                           }}
                         >
                           Delete
@@ -361,7 +370,7 @@ const Projects = ({
                         <button
                           onClick={(e) => {
                             e.preventDefault();
-                            deleteTodo(todo.id);
+                            deleteTodo(todo);
                           }}
                         >
                           Delete

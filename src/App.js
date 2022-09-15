@@ -22,6 +22,7 @@ function App() {
   // FETCHING TODOS
   const [todos, setTodos] = useState([]);
 
+
   useEffect(() => {
     const fetchData = async () => {
       await fetch("https://6322252d362b0d4e7dc97a30.mockapi.io/todos")
@@ -148,7 +149,7 @@ function App() {
                   />
                   <Route
                     path="/projects"
-                    element={<Projects todos={todos} />}
+                    element={<Projects />}
                   />
                   <Route path="/calendar" element={<Calendar />} />
                   <Route path="/stats" element={<Stats todos={todos} />} />
