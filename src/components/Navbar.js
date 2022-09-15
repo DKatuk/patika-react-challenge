@@ -44,7 +44,7 @@ const Navbar = ({ onClick, logOut }) => {
             placement="bottom"
             trigger="mouseenter"
           >
-            <NavLink to="/profile">
+            <NavLink to="/">
               <button onClick={clickProfile} className="rounded-full w-8 mr-4 ">
                 <img
                   src="../images/profile-default.jpeg"
@@ -59,7 +59,7 @@ const Navbar = ({ onClick, logOut }) => {
       {profile ? (
         <button
           onClick={logOut}
-          className="fixed right-0 border px-4 mr-2 text-secondary-300 border-secondary-300"
+          className="fixed right-0 border px-4 mr-2 rounded-lg text-secondary-300 border-secondary-300"
         >
           Logout
         </button>

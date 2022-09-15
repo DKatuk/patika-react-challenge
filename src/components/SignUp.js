@@ -1,12 +1,62 @@
-import React from 'react'
+import React,{useState, useEffect} from 'react'
 
 const SignUp = ({
   nameRef,
   surnameRef,
   emailRef,
   passwordRef,
-  handleSignUp,
 }) => {
+  const initialValues= {name: "",surname: "", email: "", password: ""}
+  const [formValues, setFormValues] = useState(initialValues)
+  const [formErrors, setFormErrors] = useState({})
+  const [isSubmit, setIsSubmit] = useState(false)
+  function handleChange(e){
+    const {name, value} = e.target
+    setFormValues({...formValues, [name]: value})
+    console.log(formValues)
+  }
+  function handleSubmit(e){
+    e.preventDefault();
+    setFormErrors(validate(formValues));
+    setIsSubmit(true);
+  }
+  useEffect(()=>{
+    console.log(formErrors)
+    if(Object.keys(formErrors).length === 0 && isSubmit){
+        localStorage.setItem("name", nameRef.current.value);
+        localStorage.setItem("surname", surnameRef.current.value);
+        localStorage.setItem("email", emailRef.current.value);
+        localStorage.setItem("password", passwordRef.current.value);
+        window.location.reload();
+    }
+  },[formErrors])
+  const validate = (values) => {
+    const errors ={};
+    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
+    if(!values.name){
+      errors.name = "Name is required!"
+    }
+    if(!values.surname){
+      errors.surname = "Surname is required!"
+    }
+    if(!values.email){
+      errors.email = "Email is required!"
+    }else if(!regex.test(values.email)){
+      errors.email = "Invalid email"
+    }
+    if(!values.password){
+      errors.password = "Password is required!"
+    }else if(values.password.length < 6){
+      errors.password = "Password must be at least 6 characters!"
+    } 
+    return errors;
+  }
+  function handleGuestSignIn(){
+    localStorage.setItem("name", "Guest");
+    localStorage.setItem("surname", "Guest");
+    localStorage.setItem("email", "guest@guest.com");
+    localStorage.setItem("password", "guest");
+  }
   return (
     <div className="h-screen flex flex-col items-center justify-center ">
       <div className="relative">
@@ -24,48 +74,63 @@ const SignUp = ({
             </label>
             <input
               type="text"
+              value={formValues.name}
+              onChange={handleChange}
+              minLength={3}
               ref={nameRef}
               placeholder="Enter Your Name"
               className="rounded-lg m-2"
               name="name"
             />
+            <p className="text-red-500">{formErrors.name}</p>
             <label htmlFor="surname" className="text-secondary-300">
               <b>Surame</b>
             </label>
             <input
               type="text"
+              value={formValues.surname}
+              onChange={handleChange}
+              minLength={3}
               ref={surnameRef}
               placeholder="Enter Your Surname"
               className="rounded-lg m-2"
               name="surname"
             />
+            <p className="text-red-500">{formErrors.surname}</p>
             <label htmlFor="email" className="text-secondary-300">
               <b>Email</b>
             </label>
             <input
               type="text"
+              value={formValues.email}
+              onChange={handleChange}
               ref={emailRef}
               placeholder="Enter Email"
               className="rounded-lg m-2"
               name="email"
             />
-
-            <label htmlFor="psw" className="text-secondary-300">
+            <p className="text-red-500">{formErrors.email}</p>
+            <label htmlFor="password" className="text-secondary-300">
               <b>Password</b>
             </label>
             <input
               type="password"
+              value={formValues.password}
+              onChange={handleChange}
+              minLength={3}
               ref={passwordRef}
               placeholder="Enter Your Password"
               className="rounded-lg m-2"
-              name="psw"
+              name="password"
             />
+            <p className="text-red-500">{formErrors.password}</p>
           </form>
           <h2 className="text-secondary-300">
-            Use the app as a <button className="text-primary-200">Guest</button>
+            Use the app as a <button onClick={handleGuestSignIn} className="text-primary-200">Guest</button>
           </h2>
           <button
-            onClick={handleSignUp}
+            // onClick={handleSignUp}
+            onClick={handleSubmit}
             className="mt-4 px-4 rounded-lg bg-primary-100 text-secondary-300 hover:text-secondary-100"
           >
             <b>Sign Up</b>

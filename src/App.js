@@ -1,5 +1,5 @@
 import "./App.css";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { FiSettings } from "react-icons/fi";
 import Tippy from "@tippyjs/react";
@@ -11,17 +11,13 @@ import Calendar from "pages/Calendar";
 import Projects from "pages/Projects";
 import Stats from "pages/Stats";
 import About from "pages/About";
-import Profile from "pages/Profile";
 import SignUp from "components/SignUp";
-import { useRef } from "react";
-import toast from "react-hot-toast";
 import Todo from "pages/Todo";
 
 
 function App() {
   // FETCHING TODOS
   const [todos, setTodos] = useState([]);
-  
 
   useEffect(() => {
     const fetchData = async () => {
@@ -37,9 +33,8 @@ function App() {
     return () => clearTimeout(timer);
   }, []);
   
-
-  // SORTING TODOS BY DUE DATE - ASCENDING OR DESCENDING ORDER
   
+  // SORTING TODOS BY DUE DATE - ASCENDING OR DESCENDING ORDER
   function sortByDescendingDate() {
     const descendingTodos = [...todos].sort((a, b) => {
       return new Date(b.dueDate).getTime() - new Date(a.dueDate).getTime();
@@ -61,7 +56,6 @@ function App() {
     setTodos(categoryTodos);
   }
   
-
   // SIDEBAR TOGGLE
   const [activeSideMenu, setActiveSideMenu] = useState(true);
   const { innerWidth: width } = window;
@@ -82,23 +76,6 @@ function App() {
   const emailRef = useRef();
   const passwordRef = useRef();
 
-  //TOAST NOT WORKING ??
-  function handleSignUp() {
-    if (
-      nameRef.current.value !== "" ||
-      surnameRef.current.value !== "" ||
-      emailRef.current.value !== "" ||
-      passwordRef.current.value !== ""
-    ) {
-      localStorage.setItem("name", nameRef.current.value);
-      localStorage.setItem("surname", surnameRef.current.value);
-      localStorage.setItem("email", emailRef.current.value);
-      localStorage.setItem("password", passwordRef.current.value);
-    } else {
-      toast.error("Please fill in all fields");
-    }
-    window.location.reload();
-  }
   const name = localStorage.getItem("name");
   const surname = localStorage.getItem("surname");
   const email = localStorage.getItem("email");
@@ -154,7 +131,6 @@ function App() {
                   <Route path="/calendar" element={<Calendar />} />
                   <Route path="/stats" element={<Stats todos={todos} />} />
                   <Route path="/about" element={<About />} />
-                  <Route path="/profile" element={<Profile />} />
                   <Route path="/todo/:id" element={<Todo />} />
                   <Route path="*" element={<div>404</div>} />
                 </Routes>
@@ -167,7 +143,6 @@ function App() {
         </BrowserRouter>
       ) : (
         <SignUp
-          handleSignUp={handleSignUp}
           nameRef={nameRef}
           surnameRef={surnameRef}
           emailRef={emailRef}
