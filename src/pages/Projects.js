@@ -79,7 +79,10 @@ const Projects = ({
            dueDate: newDueDate,
          },
        ]);
-
+       fetch(
+         `https://6322252d362b0d4e7dc97a30.mockapi.io/todos`,
+         requestOptions
+       ).then((response) => response.json());
     } else {
       return false;
     }

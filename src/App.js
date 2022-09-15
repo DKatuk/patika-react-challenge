@@ -21,7 +21,7 @@ import Todo from "pages/Todo";
 function App() {
   // FETCHING TODOS
   const [todos, setTodos] = useState([]);
-
+  
 
   useEffect(() => {
     const fetchData = async () => {
