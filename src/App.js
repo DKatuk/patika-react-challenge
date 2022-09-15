@@ -126,7 +126,15 @@ function App() {
                   />
                   <Route
                     path="/projects"
-                    element={<Projects />}
+                    element={
+                      <Projects
+                        todos={todos}
+                        setTodos={setTodos}
+                        sortByDescendingDate={sortByDescendingDate}
+                        sortByAscendingDate={sortByAscendingDate}
+                        sortCategory={sortByCategory}
+                      />
+                    }
                   />
                   <Route path="/calendar" element={<Calendar />} />
                   <Route path="/stats" element={<Stats todos={todos} />} />
