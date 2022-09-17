@@ -3,3 +3,14 @@
     height: -webkit-fill-available;
   }
 }
+
+.rbc-calendar {
+  max-width: 900px !important;
+  color:#00081D;
+}
+.rbc-month-view{
+  background-color:#FAFBFB;
+}
+.rbc-event-content{
+  color:#00081D;
+}
