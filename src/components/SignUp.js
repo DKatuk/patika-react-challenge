@@ -56,6 +56,7 @@ const SignUp = ({
     localStorage.setItem("surname", "Guest");
     localStorage.setItem("email", "guest@guest.com");
     localStorage.setItem("password", "guest");
+    window.location.reload();
   }
   return (
     <div className="h-screen flex flex-col items-center justify-center ">
@@ -129,7 +130,6 @@ const SignUp = ({
             Use the app as a <button onClick={handleGuestSignIn} className="text-primary-200">Guest</button>
           </h2>
           <button
-            // onClick={handleSignUp}
             onClick={handleSubmit}
             className="mt-4 px-4 rounded-lg bg-primary-100 text-secondary-300 hover:text-secondary-100"
           >

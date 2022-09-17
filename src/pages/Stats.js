@@ -5,7 +5,6 @@ import {
   Bar,
   LineChart,
   Line,
-  Cell,
   XAxis,
   YAxis,
   CartesianGrid,
@@ -21,12 +20,8 @@ const Stats = ({todos}) => {
       return r;
     }, {});
 
-  // let countValue = (arr, key, value) =>
-  //   arr.filter((x) => x[key] === value).length;
-
   console.log(countValuesByKey(todos, "category"));
   const categoryData = countValuesByKey(todos, "category");
-  // console.log("categoryData", categoryData);
   const data= [
     { name: "Work", value: categoryData.Work },
     { name: "Study", value: categoryData.Study },
