@@ -55,7 +55,7 @@ const Projects = ({
 
 
   const [newTask, setNewTask] = useState({});
-  const [newCategory, setNewCategory] = useState({});
+  const [newCategory, setNewCategory] = useState("Work");
   const [newDueDate, setNewDueDate] = useState({});
   
   function submitTask(e) {
@@ -194,7 +194,7 @@ const Projects = ({
           onClick={handleNewItem}
           className="float-right flex items-center text-xs md:text-base md:py-1 w-16 md:w-max mt-4 px-4 rounded-lg border border-primary-100 dark:border-secondary-100 bg-secondary-100 dark:bg-secondary-200 hover:bg-primary-100 dark:hover:bg-primary-100 text-primary-100 dark:text-secondary-100 hover:text-secondary-100"
         >
-            <AiOutlinePlusCircle className="mr-2 hidden md:flex dark:text-secondary-100" />
+          <AiOutlinePlusCircle className="mr-2 hidden md:flex dark:text-secondary-100" />
           <p>New Item</p>
         </button>
       </div>
@@ -222,10 +222,10 @@ const Projects = ({
                   <div className="h-28 relative border hover:cursor-pointer shadow-sm rounded-lg p-4 m-2 bg-secondary-100 dark:bg-secondary-200 dark:border-secondary-200 dark:text-secondary-100">
                     <div className="flex justify-between">
                       <div className="flex flex-row">
-                        <p className="rounded-xl bg-primary-200 text-secondary-100 px-4 mr-2 ">
+                        <p className="rounded-xl bg-primary-200 text-secondary-100 text-xs lg:text-base px-4 mr-2 ">
                           {todo.category}
                         </p>
-                        <p className="rounded-xl bg-primary-100 text-secondary-100 px-4 ">
+                        <p className="rounded-xl bg-primary-100 text-secondary-100 text-xs lg:text-base px-4 ">
                           {todo.dueDate}
                         </p>
                       </div>
@@ -246,7 +246,7 @@ const Projects = ({
                     {taskStatus[todo.id] ? (
                       <span
                         ref={refTwo}
-                        className="bg-secondary-100 flex flex-col border border-primary-100 px-2 absolute top-9 z-50 right-5 shadow-sm rounded-lg"
+                        className="bg-secondary-100 dark:bg-secondary-200 flex flex-col border border-primary-100 px-2 absolute top-9 z-50 right-5 shadow-sm rounded-lg"
                       >
                         <button
                           onClick={(e) => {
@@ -291,10 +291,10 @@ const Projects = ({
                   <div className="h-28 relative border hover:cursor-pointer shadow-sm rounded-lg p-4 m-2 bg-secondary-100 dark:bg-secondary-200 dark:border-secondary-200 dark:text-secondary-100">
                     <div className="flex justify-between">
                       <div className="flex flex-row">
-                        <p className="rounded-xl bg-primary-200 text-secondary-100 px-4 mr-2 ">
+                        <p className="rounded-xl bg-primary-200 text-secondary-100 text-xs lg:text-base px-4 mr-2 ">
                           {todo.category}
                         </p>
-                        <p className="rounded-xl bg-primary-100 text-secondary-100 px-4 ">
+                        <p className="rounded-xl bg-primary-100 text-secondary-100 text-xs lg:text-base px-4 ">
                           {todo.dueDate}
                         </p>
                       </div>
@@ -315,7 +315,7 @@ const Projects = ({
                     {taskStatus[todo.id] ? (
                       <span
                         ref={refTwo}
-                        className="bg-secondary-100 flex flex-col border border-primary-100 px-2 absolute top-9 z-50 right-5 shadow-sm rounded-lg"
+                        className="bg-secondary-100 dark:bg-secondary-200 flex flex-col border border-primary-100 px-2 absolute top-9 z-50 right-5 shadow-sm rounded-lg"
                       >
                         <button
                           onClick={(e) => {
@@ -352,10 +352,10 @@ const Projects = ({
                   <div className="h-28 relative border hover:cursor-pointer shadow-sm rounded-lg p-4 m-2 bg-secondary-100 dark:bg-secondary-200 dark:border-secondary-200 dark:text-secondary-100">
                     <div className="flex justify-between">
                       <div className="flex flex-row">
-                        <p className="rounded-xl bg-primary-200 text-secondary-100 px-4 mr-2 ">
+                        <p className="rounded-xl bg-primary-200 text-secondary-100 text-xs lg:text-base px-4 mr-2 ">
                           {todo.category}
                         </p>
-                        <p className="rounded-xl bg-primary-100 text-secondary-100 px-4 ">
+                        <p className="rounded-xl bg-primary-100 text-secondary-100 text-xs lg:text-base px-4 ">
                           {todo.dueDate}
                         </p>
                       </div>
@@ -376,7 +376,7 @@ const Projects = ({
                     {taskStatus[todo.id] ? (
                       <span
                         ref={refTwo}
-                        className="bg-secondary-100 flex flex-col border border-primary-100 px-2 absolute top-9 z-50 right-5 shadow-sm rounded-lg"
+                        className="bg-secondary-100 dark:bg-secondary-200 flex flex-col border border-primary-100 px-2 absolute top-9 z-50 right-5 shadow-sm rounded-lg"
                       >
                         <button
                           onClick={(e) => {

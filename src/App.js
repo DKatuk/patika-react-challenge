@@ -147,7 +147,7 @@ function App() {
                   />
                   <Route
                     path="/calendar"
-                    element={<CalendarTodo todos={todos} />}
+                    element={<CalendarTodo todos={todos}/>}
                   />
                   <Route path="/stats" element={<Stats todos={todos} />} />
                   <Route path="/about" element={<About />} />

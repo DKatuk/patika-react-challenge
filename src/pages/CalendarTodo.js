@@ -22,8 +22,6 @@ const localizer = dateFnsLocalizer({
 
 
 const CalendarTodo = ({ todos }) => {
-  const [theme] = useDarkMode();
-  console.log("colortheme", theme);
   //convert todos data to calendar events data
   const calendarData = todos.map(({
     content: title,
