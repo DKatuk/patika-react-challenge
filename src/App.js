@@ -7,12 +7,12 @@ import "tippy.js/dist/tippy.css";
 import "tippy.js/themes/light.css";
 import Sidebar from "components/Sidebar";
 import Navbar from "components/Navbar";
-import Calendar from "pages/Calendar";
 import Projects from "pages/Projects";
 import Stats from "pages/Stats";
 import About from "pages/About";
 import SignUp from "components/SignUp";
 import Todo from "pages/Todo";
+import CalendarTodo from "pages/CalendarTodo";
 
 
 function App() {
@@ -136,7 +136,10 @@ function App() {
                       />
                     }
                   />
-                  <Route path="/calendar" element={<Calendar />} />
+                  <Route
+                    path="/calendar"
+                    element={<CalendarTodo todos={todos} />}
+                  />
                   <Route path="/stats" element={<Stats todos={todos} />} />
                   <Route path="/about" element={<About />} />
                   <Route path="/todo/:id" element={<Todo />} />
