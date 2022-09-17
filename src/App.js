@@ -1,7 +1,6 @@
 import "./App.css";
 import { useEffect, useState, useRef } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-// import { FiSettings } from "react-icons/fi";
 import { BsFillBrightnessHighFill, BsFillMoonFill } from "react-icons/bs";
 import Tippy from "@tippyjs/react";
 import "tippy.js/dist/tippy.css";
