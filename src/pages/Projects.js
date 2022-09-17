@@ -81,7 +81,7 @@ const Projects = ({
          requestOptions
        ).then((response) => response.json());
     } else {
-      return false;
+      return alert("Task must be at least 3 characters long");
     }
     e.preventDefault();
      
@@ -127,10 +127,7 @@ const Projects = ({
     })
       .then(async (response) => {
         const data = await response.json();
-
-        // check for error response
         if (!response.ok) {
-          // get error message from body or default to response status
           const error = (data && data.message) || response.status;
           return Promise.reject(error);
         }
