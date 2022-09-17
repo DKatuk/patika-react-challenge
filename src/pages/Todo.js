@@ -57,40 +57,52 @@ const Todo = () => {
   return (
     <div className="m-6">
       <div className="relativ p-4 m-2">
-        <div className="flex flex-col items-center md:items-start  my-1">
-          <h1 className="font-bold">TODO</h1>
+        <div className="flex flex-col items-center md:items-start my-1">
+          <h1 className="font-bold dark:text-secondary-100">TODO</h1>
           <hr />
           <div className="flex flex-col gap-2 mt-2">
             <div className="flex flex-row ">
-              <h2 className="underline">Todo Category :</h2>
+              <h2 className="underline dark:underline-secondary-100 dark:text-secondary-100">
+                Todo Category :
+              </h2>
               <p className="rounded-xl bg-primary-200 text-secondary-100 px-4 ml-2 ">
                 {todo.category}
               </p>
             </div>
             <div className="flex flex-row ">
-              <h2 className="underline">Todo Due Date :</h2>
+              <h2 className="underline dark:underline-secondary-100 dark:text-secondary-100">
+                Todo Due Date :
+              </h2>
               <p className="rounded-xl bg-primary-100 text-secondary-100 px-4 ml-2">
                 {todo.dueDate}
               </p>
             </div>
           </div>
           <div className="flex flex-row gap-2 mt-2">
-            <h2 className="underline">Todo Status:</h2>
-            <p>
+            <h2 className="underline dark:underline-secondary-100 dark:text-secondary-100">
+              Todo Status:
+            </h2>
+            <p className="text-secondary-300 dark:text-secondary-100">
               {todo.isCompleted === false && "Not Completed"}
               {todo.isCompleted === "inProgress" && "In Progress"}
               {todo.isCompleted === "Done" && "Done"}
             </p>
           </div>
           <div className="gap-2 mt-2">
-            <h2 className="underline">Todo Description :</h2>
-            <p>{todo.content}</p>
+            <h2 className="underline dark:underline-secondary-100 dark:text-secondary-100">
+              Todo Description :
+            </h2>
+            <p className="text-secondary-300 dark:text-secondary-100">
+              {todo.content}
+            </p>
           </div>
         </div>
         <div>
           {todo.isCompleted === false && (
             <span className="flex flex-col items-center gap-2">
-              <h1 className="text-center font-bold">Mark Todo As</h1>
+              <h1 className="text-center font-bold text-secondary-300 dark:text-secondary-100">
+                Mark Todo As
+              </h1>
               <hr className="w-full" />
               <Link to="/">
                 <button
@@ -110,7 +122,9 @@ const Todo = () => {
                   Done
                 </button>
               </Link>
-              <h1 className="text-center font-bold">Delete Todo</h1>
+              <h1 className="text-center font-bold text-secondary-300 dark:text-secondary-100">
+                Delete Todo
+              </h1>
               <hr className="w-full" />
               <Link to="/">
                 <button
@@ -126,7 +140,9 @@ const Todo = () => {
           )}
           {todo.isCompleted === "inProgress" && (
             <span className="flex flex-col items-center gap-2">
-              <h1 className="text-center font-bold">Mark Todo As</h1>
+              <h1 className="text-center font-bold text-secondary-300 dark:text-secondary-100">
+                Mark Todo As
+              </h1>
               <hr className="w-full" />
               <Link to="/">
                 <button
@@ -138,7 +154,9 @@ const Todo = () => {
                   Done
                 </button>
               </Link>
-              <h1 className="text-center font-bold">Delete Todo</h1>
+              <h1 className="text-center font-bold text-secondary-300 dark:text-secondary-100">
+                Delete Todo
+              </h1>
               <hr className="w-full" />
               <button
                 onClick={() => {
@@ -152,7 +170,9 @@ const Todo = () => {
           )}
           {todo.isCompleted === "Done" && (
             <span className="flex flex-col items-center gap-2">
-              <h1 className="text-center font-bold">Delete Todo</h1>
+              <h1 className="text-center font-bold text-secondary-300 dark:text-secondary-100">
+                Delete Todo
+              </h1>
               <hr className="w-full" />
               <Link to="/">
                 <button

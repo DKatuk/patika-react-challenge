@@ -7,6 +7,7 @@ import parse from "date-fns/parse";
 import startOfWeek from "date-fns/startOfWeek";
 import getDay from "date-fns/getDay";
 import "react-big-calendar/lib/css/react-big-calendar.css";
+import useDarkMode from "hook/useDarkMode";
 
 const locales = {
   "en-US": require("date-fns/locale/en-US"),
@@ -21,6 +22,8 @@ const localizer = dateFnsLocalizer({
 
 
 const CalendarTodo = ({ todos }) => {
+  const [theme] = useDarkMode();
+  console.log("colortheme", theme);
   //convert todos data to calendar events data
   const calendarData = todos.map(({
     content: title,
@@ -32,7 +35,7 @@ const CalendarTodo = ({ todos }) => {
 
 const navigate = useNavigate();
   return (
-    <div className="my-10 md:flex md:justify-center">
+    <div className="my-10 md:flex md:justify-center transition duration-500">
       <Calendar
         localizer={localizer}
         events={calendarData}
@@ -41,7 +44,7 @@ const navigate = useNavigate();
         startAccessor="dueDate"
         endAccessor="dueDate"
         onSelectEvent={(event) => navigate(`/todo/${event.id}`)}
-        style={{ height: 500, margin: "10px" }}
+        style={{ height: 500, margin: "10px", color: "#7C31FF" }}
         eventPropGetter={(event) => {
           const backgroundColor = "#02EF60";
           return { style: { backgroundColor } };

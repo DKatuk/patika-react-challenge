@@ -13,7 +13,7 @@ const Navbar = ({ onClick, logOut }) => {
 
   return (
     <div>
-      <nav className="flex justify-between w-full h-10 text-secondary-300 dark:bg-dark-200">
+      <nav className="flex justify-between w-full h-10 text-secondary-300 dark:bg-dark-100">
         <Tippy
           content="Menu"
           theme="light"
@@ -24,22 +24,12 @@ const Navbar = ({ onClick, logOut }) => {
             <AiOutlineMenu className="inline-block ml-6 text-2xl text-secondary-300 dark:text-secondary-100" />
           </button>
         </Tippy>
-        <div className="w-24 md:hidden flex items-center ml-12">
+        <div className="w-24 md:hidden flex items-center ml-2">
           <img src="../images/todo-logo.jpeg" alt="logo" />
         </div>
         <div className="flex items-center mr-2">
           <Tippy
-            content="Notifications"
-            theme="light"
-            placement="bottom"
-            trigger="mouseenter"
-          >
-            <button>
-              <AiOutlineBell className="inline-block mr-2 text-2xl hover:cursor-pointer text-secondary-300 dark:text-secondary-100" />
-            </button>
-          </Tippy>
-          <Tippy
-            content="Profile"
+            content="logout"
             theme="light"
             placement="bottom"
             trigger="mouseenter"

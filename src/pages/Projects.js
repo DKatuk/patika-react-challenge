@@ -149,14 +149,17 @@ const Projects = ({
       <div className="flex justify-between items-center my-4 mx-6">
         <div>
           <span className="mr-2">
-            <label htmlFor="category" className="text-secondary-300 mb-2 mr-4">
+            <label
+              htmlFor="category"
+              className="text-secondary-300 dark:text-secondary-100 mb-2 mr-4"
+            >
               <b>Sort By Category:</b>
             </label>
             <select
               name="languages"
               onChange={(e) => sortCategory(e.target.value)}
               id="category"
-              className="rounded-lg w-44 h-10 "
+              className="rounded-lg md:w-44 h-8 md:h-auto md:scale-75 w-32 text-sm md:text-base dark:bg-secondary-200 dark:text-secondary-100 appearance-none"
               defaultValue="Work"
             >
               <option value="Work">Work</option>
@@ -173,7 +176,7 @@ const Projects = ({
             placement="bottom"
           >
             <button type="button" onClick={sortByDescendingDate}>
-              <AiOutlineArrowDown className="mr-2" />
+              <AiOutlineArrowDown className="mr-2 dark:text-secondary-100" />
             </button>
           </Tippy>
           <Tippy
@@ -183,17 +186,16 @@ const Projects = ({
             placement="bottom"
           >
             <button type="button" onClick={sortByAscendingDate}>
-              <AiOutlineArrowUp className="mr-2" />
+              <AiOutlineArrowUp className="mr-2 dark:text-secondary-100" />
             </button>
           </Tippy>
         </div>
         <button
           onClick={handleNewItem}
-          className="float-right flex items-center mt-4 px-4 rounded-lg border border-primary-100 bg-secondary-100 hover:bg-primary-100 text-primary-100 hover:text-secondary-100"
+          className="float-right flex items-center text-xs md:text-base md:py-1 w-16 md:w-max mt-4 px-4 rounded-lg border border-primary-100 dark:border-secondary-100 bg-secondary-100 dark:bg-secondary-200 hover:bg-primary-100 dark:hover:bg-primary-100 text-primary-100 dark:text-secondary-100 hover:text-secondary-100"
         >
-          {" "}
-          <AiOutlinePlusCircle className="mr-2" />
-          New Item{" "}
+            <AiOutlinePlusCircle className="mr-2 hidden md:flex dark:text-secondary-100" />
+          <p>New Item</p>
         </button>
       </div>
       <div>
@@ -209,13 +211,15 @@ const Projects = ({
       <hr className="m-4" />
       <div className="m-5 md:grid grid-cols-3 md:divide-x">
         <div>
-          <h1 className="text-xl font-bold text-center">Todos</h1>
+          <h1 className="text-xl font-bold text-center dark:text-secondary-100">
+            Todos
+          </h1>
           <hr />
           {todos.map(
             (todo) =>
               todo.isCompleted === false && (
                 <Link to={`/todo/${todo.id}`} key={todo.id}>
-                  <div className="h-28 relative border hover:cursor-pointer shadow-sm rounded-lg p-4 m-2 bg-secondary-100">
+                  <div className="h-28 relative border hover:cursor-pointer shadow-sm rounded-lg p-4 m-2 bg-secondary-100 dark:bg-secondary-200 dark:border-secondary-200 dark:text-secondary-100">
                     <div className="flex justify-between">
                       <div className="flex flex-row">
                         <p className="rounded-xl bg-primary-200 text-secondary-100 px-4 mr-2 ">
@@ -276,13 +280,15 @@ const Projects = ({
           )}
         </div>
         <div>
-          <h1 className="text-xl font-bold text-center">In Progress</h1>
+          <h1 className="text-xl font-bold text-center dark:text-secondary-100">
+            In Progress
+          </h1>
           <hr />
           {todos.map(
             (todo) =>
               todo.isCompleted === "inProgress" && (
                 <Link to={`/todo/${todo.id}`} key={todo.id}>
-                  <div className="h-28 relative border hover:cursor-pointer shadow-sm rounded-lg p-4 m-2 bg-secondary-100">
+                  <div className="h-28 relative border hover:cursor-pointer shadow-sm rounded-lg p-4 m-2 bg-secondary-100 dark:bg-secondary-200 dark:border-secondary-200 dark:text-secondary-100">
                     <div className="flex justify-between">
                       <div className="flex flex-row">
                         <p className="rounded-xl bg-primary-200 text-secondary-100 px-4 mr-2 ">
@@ -335,13 +341,15 @@ const Projects = ({
           )}
         </div>
         <div>
-          <h1 className="text-xl font-bold text-center">Done</h1>
+          <h1 className="text-xl font-bold text-center dark:text-secondary-100">
+            Done
+          </h1>
           <hr />
           {todos.map(
             (todo) =>
               todo.isCompleted === "Done" && (
                 <Link to={`/todo/${todo.id}`} key={todo.id}>
-                  <div className="h-28 relative border hover:cursor-pointer shadow-sm rounded-lg p-4 m-2 bg-secondary-100">
+                  <div className="h-28 relative border hover:cursor-pointer shadow-sm rounded-lg p-4 m-2 bg-secondary-100 dark:bg-secondary-200 dark:border-secondary-200 dark:text-secondary-100">
                     <div className="flex justify-between">
                       <div className="flex flex-row">
                         <p className="rounded-xl bg-primary-200 text-secondary-100 px-4 mr-2 ">
