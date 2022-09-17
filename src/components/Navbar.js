@@ -1,6 +1,5 @@
 import React, {useState} from "react";
 import { AiOutlineMenu } from "react-icons/ai";
-import { AiOutlineBell } from "react-icons/ai";
 import Tippy from "@tippyjs/react";
 import "tippy.js/themes/light.css";
 import { NavLink } from "react-router-dom";

@@ -35,9 +35,6 @@ const Projects = ({
 
   useEffect(()=>{
     function handleClickOutside(e) {
-      // console.log("e", e);
-      // console.log("ref", refStatusPopUp.current);
-      // console.log("ref2", refTwo.current);
       if (
         refStatusPopUp.current && !refTwo.current.contains(e.target) &&
         !refStatusPopUp.current.contains(e.target)

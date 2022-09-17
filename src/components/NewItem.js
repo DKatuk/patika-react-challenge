@@ -1,5 +1,4 @@
 import React from 'react'
-// import { AiOutlinePlusCircle } from "react-icons/ai";
 
 const NewItem = ({ setNewTask, submitTask, setNewCategory, setNewDueDate }) => {
   return (
