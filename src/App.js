@@ -1,7 +1,8 @@
 import "./App.css";
 import { useEffect, useState, useRef } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { FiSettings } from "react-icons/fi";
+// import { FiSettings } from "react-icons/fi";
+import { BsFillBrightnessHighFill, BsFillMoonFill } from "react-icons/bs";
 import Tippy from "@tippyjs/react";
 import "tippy.js/dist/tippy.css";
 import "tippy.js/themes/light.css";
@@ -13,9 +14,11 @@ import About from "pages/About";
 import SignUp from "components/SignUp";
 import Todo from "pages/Todo";
 import CalendarTodo from "pages/CalendarTodo";
+import useDarkMode from "hook/useDarkMode";
 
 
 function App() {
+  const [colorTheme, setTheme]= useDarkMode();
   // FETCHING TODOS
   const [todos, setTodos] = useState([]);
 
@@ -89,19 +92,25 @@ function App() {
     <div className="App">
       {name && surname && email && password ? (
         <BrowserRouter>
-          <div className="flex relative dark:bg-dark-100">
+          <div className="flex relative dark:bg-dark-100 transition duration-500">
             <div className="fixed right-4 bottom-4 z-50">
               <Tippy
-                content="Settings"
+                content="Change Theme"
                 theme="light"
                 trigger="mouseenter"
                 placement="top"
               >
                 <button
                   type="button"
+                  onClick={()=>setTheme(colorTheme)}
                   className="bg-primary-100 text-secondary-100 hover:drop-shadow-xl text-2xl rounded-full p-2"
                 >
-                  <FiSettings />
+                  {colorTheme === "light" ? (
+                    <BsFillMoonFill />
+                    
+                  ) : (
+                    <BsFillBrightnessHighFill />
+                  )}
                 </button>
               </Tippy>
             </div>
@@ -146,7 +155,7 @@ function App() {
                   <Route path="*" element={<div>404</div>} />
                 </Routes>
               </div>
-              <div className="hidden md:block">
+              <div className="hidden md:block h-screen">
                 {activeSideMenu ? <Sidebar /> : null}
               </div>
             </div>
