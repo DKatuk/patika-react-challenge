@@ -1,3 +1,10 @@
+
+Sneak Peak
+
+![image](https://user-images.githubusercontent.com/100930519/190869272-7182a62b-27f2-4b1d-9de6-f71efa996fa4.png)
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
